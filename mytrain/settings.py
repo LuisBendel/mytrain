@@ -121,12 +121,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-CRISPY_TEMPLATE_PACK='bootstrap4'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# modifications
+CRISPY_TEMPLATE_PACK='bootstrap4'
+
+LOGIN_REDIRECT_URL='/exercises'
+LOGOUT_REDIRECT_URL='/login'
 
 
 

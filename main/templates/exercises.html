@@ -1,5 +1,14 @@
-{% extends "base.html" %}{% block content %}
-{% for exercise in Exercises %}
-    {{exercise.name}}
-{% endfor %}
-{% endblock %}
+ 
+  
+{% extends "base.html" %}{% block title %}Exercises{% endblock %}
+
+{% if user.is_authenticated %}
+    {% block content %}
+        {% for exercise in Exercises %}
+        {{exercise.name}}
+        {% endfor %}
+    {% endblock %}
+
+{% else %}
+<p>Login <a href="/login">here</a></p>
+{% endif %}

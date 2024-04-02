@@ -7,7 +7,7 @@ def register(response):
         form = forms.RegisterForm(response.POST)
         if form.is_valid():
             form.save()
-            return redirect("/home")
+            return redirect("/exercise")
     else:
         form = forms.RegisterForm()
     return render(response, "register/register.html", {"form": form})
