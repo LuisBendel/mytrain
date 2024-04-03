@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block title %} Workout {% endblock %}
+
+{% block content %}
+    <div>
+        {{ year }}
+        {{ month }}
+        {{ day }}
+    </div>
+    
+    <div>
+        {% for monthday in monthdays %}
+            <p>{{ monthday }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

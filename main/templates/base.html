@@ -50,7 +50,7 @@
     </nav>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col">
           {% if user.is_authenticated %}
             Welcome user, you are loged in..
           {% else %}
@@ -58,6 +58,10 @@
           {% endif %}
           <h1 class="mt-2">MyTrain</h1>
           <hr class="mt-0 mb-4">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col">
             {% block content %}
 
             {% endblock %}

@@ -3,7 +3,20 @@
 {% extends "base.html" %}{% block title %}Exercises{% endblock %}
 
 {% block content %}
+<div id="accordion">
     {% for exercise in Exercises %}
-    {{exercise.name}}
+    <div class="card">
+      <div class="card-header" id="heading{{ forloop.counter }}">
+        <a class="stretched-link" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+            <h5 class="mb-0">{{exercise.name}}</h5>
+        </a>
+      </div>
+      <div id="collapse{{ forloop.counter }}" class="collapse show" aria-labelledby="heading{{ forloop.counter }}" data-parent="#accordion">
+        <div class="card-body">
+            Test
+        </div>
+      </div>
+    </div>
     {% endfor %}
+</div>
 {% endblock %}

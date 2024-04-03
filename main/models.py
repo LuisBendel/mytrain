@@ -9,21 +9,24 @@ class ToDoItem(models.Model):
 # All Exercises including different types of exercises
 class Exercises(models.Model):
     name = models.CharField(primary_key=True, max_length=300)
-    link = models.CharField(max_length=300)
-    description = models.TextField(max_length=1000, default="")
-    type = {
+    link = models.CharField(max_length=300, null=True, blank=True)
+    description = models.TextField(max_length=1000, default="", null=True, blank=True)
+    TYPE = {
         "LW": "Lift Weights",
         "LT": "Lift Time",
         "C": "Cardio"
     }
-    muscle_group = {
+    MUSCLE_GROUP = {
         "LB": "Lower Body",
         "UB": "Upper Body",
         "FB": "Full Body"
     }
-    muscle_subgroup = {
+    MUSCLE_SUBGROUP = {
         "CH": "Chest"
     }
+    type = models.CharField(max_length=10, choices=TYPE, null=True)
+    muscle_group = models.CharField(max_length=10, choices=MUSCLE_GROUP, null=True)
+    muscle_subrgoup = models.CharField(max_length=10, choices=MUSCLE_SUBGROUP, null=True)
 
 
 # Define different sets, reps and time schedules and details for each of these
