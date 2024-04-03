@@ -19,26 +19,43 @@
     </title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-inverse navbar-light bg-light">
       <a class="navbar-brand" href="#">My Django App</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#">Workout</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="/exercises">All Exercises</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <form action="{% url 'logout' %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-light">Logout</button>
+            </form>
+          </li>
+        {% endif %}
+        </ul>
+
       </div>
     </nav>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-8">
+          {% if user.is_authenticated %}
+            Welcome user, you are loged in..
+          {% else %}
+            You are not logged in
+          {% endif %}
           <h1 class="mt-2">MyTrain</h1>
           <hr class="mt-0 mb-4">
             {% block content %}

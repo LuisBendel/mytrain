@@ -16,6 +16,14 @@ class Exercises(models.Model):
         "LT": "Lift Time",
         "C": "Cardio"
     }
+    muscle_group = {
+        "LB": "Lower Body",
+        "UB": "Upper Body",
+        "FB": "Full Body"
+    }
+    muscle_subgroup = {
+        "CH": "Chest"
+    }
 
 
 # Define different sets, reps and time schedules and details for each of these
